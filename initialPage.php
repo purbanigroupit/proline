@@ -101,6 +101,17 @@ if (isset($_GET['LOGOUT'])) {
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/w3.css"></link>
     <link rel="stylesheet" type="text/css" href="css/mycss.css"></link>
+    <style>
+        /* Define custom circular button */
+        .custom-circle-btn {
+          border-radius: 50%!important;
+          width: 45px;
+          height: 45px;
+          text-align: center!important; /* Center text horizontally */
+          line-height: 30px!important; /* Center text vertically */
+          
+        }
+    </style>
     <script src="jquery.min.js"></script>
     <script type="text/javascript" src="jquery.cookie.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -204,27 +215,39 @@ if (isset($_GET['LOGOUT'])) {
               
     </script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            document.getElementById('myForm').addEventListener('submit', function (e) {
-                e.preventDefault();
-                var formData = new FormData(this);
-                // Make an AJAX request
-                var xhr = new XMLHttpRequest();
-                xhr.open('POST', 'save_data.php', true);
-                xhr.onload = function () {
-                    if (xhr.status === 200) {
-                        // Handle the response from the server if needed
-                        console.log(xhr.responseText);
+       document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('myForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            var formData = new FormData(this);
+            // Make an AJAX request
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'save_data.php', true);
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    // Check the response from the server
+                    var response = JSON.parse(xhr.responseText);
+                    if (response.success) {
+                        // Show success alert
+                        alert('Message sent successfully!');
+                        // Close the modal
+                        var modal = new bootstrap.Modal(document.getElementById('exampleModal'));
+                        modal.hide();
+                        // Clear form fields if needed
+                        document.getElementById('recipient-name').value = '';
+                        document.getElementById('inputGroupSelect01').selectedIndex = 0;
+                        document.getElementById('message-text').value = '';
+                    } else {
+                        // Show error alert
+                        alert('Failed to send message. Please try again.');
                     }
-                };
-                xhr.send(formData);
-
-                // Close the modal
-                var modal = new bootstrap.Modal(document.getElementById('exampleModal'));
-                modal.hide();
-            });
+                }
+            };
+            xhr.send(formData);
         });
+    });
+
     </script>
+
 </head>
 
 <body style="background-color: rgb(241, 241, 241);" >
@@ -232,7 +255,7 @@ if (isset($_GET['LOGOUT'])) {
     <!-- MainBody -->
     <!-- header -->
     <div class="w3-row w3-container w3-blue-grey">
-        <div class="w3-col s12 w3-blue-grey w3-center ">
+        <div class="w3-col s12 w3-blue-grey w3-center mt-3">
             <p>SELECT LINE NO</p>
         </div>
     </div>
@@ -275,7 +298,7 @@ if (isset($_GET['LOGOUT'])) {
             <!--  -->
             <!-- <button class="w3-button w3-pale-red w3-mobile" name="line_issues" id="idLineIssues" onclick="return showIssuesModal()">REPORT ISSUES</button> -->
             
-            <button type="button" class="btn btn-warning icon-radious"  data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">🚩</button>
+            <button type="button" class="btn btn-outline-warning mx-3 custom-circle-btn"  data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">🔔</button>
             <!--  -->
         </div><br>
   </form>
@@ -340,7 +363,7 @@ if (isset($_GET['LOGOUT'])) {
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Send message</button>
+                            <button type="submit" class="btn btn-primary" id="sendMessageBtn">Send message</button>
                         </div>
                     </form>
                 </div>
@@ -351,15 +374,15 @@ if (isset($_GET['LOGOUT'])) {
   <!--footer -->
   <div class="w3-container w3-bottom w3-blue-grey">
     <a href="initialPage.php">
-      <div class="w3-col s3 w3-blue-grey w3-center w3-border-right w3-hover-dark-grey">
-        <p> <a href="index.php?logout='1'">LOGOUT</a> </p>
+      <div class="w3-col s3 w3-blue-grey w3-center w3-border-right w3-hover-dark-grey mt-3">
+        <p > <a href="index.php?logout='1'" class="text-light">LOGOUT</a> </p>
       </div>
     </a>
 
-    <div class="w3-col s6 w3-blue-grey w3-center w3-border-right">
+    <div class="w3-col s6 w3-blue-grey w3-center w3-border-right mt-3">
       <p>USERID:<span id="idUSR"><?php echo  $uname; ?></span></p>
     </div>
-    <div class="w3-col s3 w3-blue-grey w3-center ">
+    <div class="w3-col s3 w3-blue-grey w3-center mt-3">
       <p> <?php echo $date; ?> </p>
     </div>
   </div>

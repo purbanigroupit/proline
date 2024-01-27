@@ -1,10 +1,8 @@
 <?php
-session_start();
-include 'config.php';
-?>
-
+    session_start();
+    include 'config.php';
+    ?>
 <?php
-// Your database connection code goes here
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $recipientName = $_POST['recipient_name'];
@@ -22,9 +20,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $sql = "INSERT INTO `line_issues` (`RECIPIENT`, `LINENO`, `MESSAGE`) VALUES ('$recipientName', '$lineNo', '$messageText')";
     
     if ($conn->query($sql) === TRUE) {
-        echo "Data saved successfully";
+        // Return success response
+        echo json_encode(array('success' => true));
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        // Return error response
+        echo json_encode(array('success' => false));
     }
 
     $conn->close();

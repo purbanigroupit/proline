@@ -43,9 +43,9 @@ tr:nth-child(even){
     -webkit-transform: rotate(45deg);
   }
   .icon-radious{
-    border-radius: 50%; /* Border radius for circle */
-            width: 50px; /* Adjust width and height for circle size */
-            height: 50px;
-            text-align: center; /* Center text horizontally */
-            line-height: 50px; /* Center text vertically */
+    border-radius: 50%!important; /* Border radius for circle */
+    width: 50px!important; /* Adjust width and height for circle size */
+    height: 50px!important;
+    text-align: center!important; /* Center text horizontally */
+    line-height: 50px!important; /* Center text vertically */
   }
