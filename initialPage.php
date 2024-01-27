@@ -251,7 +251,6 @@ if (isset($_GET['LOGOUT'])) {
 </head>
 
 <body style="background-color: rgb(241, 241, 241);" >
-
     <!-- MainBody -->
     <!-- header -->
     <div class="w3-row w3-container w3-blue-grey">
@@ -260,7 +259,6 @@ if (isset($_GET['LOGOUT'])) {
         </div>
     </div>
     <!-- End-header -->
-
     <!-- Body -->
     <form action="initialPage.php" method="post" style="height:100%">
         <select name="sFLOOR" id="sidFLOOR" class="w3-select">
@@ -295,15 +293,13 @@ if (isset($_GET['LOGOUT'])) {
         <div class="w3-row">
             <button class="w3-button w3-teal w3-mobile" name="mis" id="idMIS">PRODUCTION MIS</button>
             <button class="w3-button w3-black w3-mobile" name="backup_restore" id="idBackupRestore" onclick="return showPasswordModal()">BACKUP / RESTORE</button>
-            <!--  -->
             <!-- <button class="w3-button w3-pale-red w3-mobile" name="line_issues" id="idLineIssues" onclick="return showIssuesModal()">REPORT ISSUES</button> -->
-            
+            <!--  -->
             <button type="button" class="btn btn-outline-warning mx-3 custom-circle-btn"  data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">🔔</button>
             <!--  -->
         </div><br>
   </form>
   <!-- End-Body -->
-
   <div id="passwordModal" class="w3-modal ">
         <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width: 400px">
             <div class="w3-container">
@@ -352,9 +348,13 @@ if (isset($_GET['LOGOUT'])) {
                             <label class="input-group-text" for="inputGroupSelect01">Line No.</label>
                             <select class="form-select" id="inputGroupSelect01" name="line_no">
                                 <option selected>Choose...</option>
+                                <!-- Dynamic  -->
                                 <option value="1">L-01</option>
                                 <option value="2">L-02</option>
-                                <option value="3">L-03</option>
+                                <option value="3">L-04</option>
+                                <option value="3">L-05</option>
+                                <option value="3">L-06</option>
+                                <option value="3">L-07</option>
                             </select>
                         </div>
                         <div class="mb-3">

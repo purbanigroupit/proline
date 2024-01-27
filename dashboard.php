@@ -98,10 +98,7 @@
     <!-- MainBody starts-->
         <div class="container-fluid px-0">
             <!-- header starts -->
-            <!--Responsive Fontsize fs-5 fs-sm-6 fs-md-4 fs-lg-3 fs-xl-2 fs-xxl-1 
-            margin-top: 0.4rem;
-            margin-bottom: 0.4rem;
-        -->
+            
             <div class="row mx-0 fw-bold w3-pink border-bottom"> 
                 <div class="col-1 border-end text-center">
                     <a href="initialPage.php" class="text-white">
@@ -251,36 +248,15 @@
                         </div>
                     </div>
                     <div class="row" style="background-color:rgb(24,24,24);">
-                        <div class=" row ps-3 custom-gutter-row bg-secondary fw-bold">
-                            <div class="col-6 ">
-                                <span class="wip-font ">WIP STYLE</span>
+                        <!-- Show Issues Card -->
+                        <div class="card mb-3">
+                            <div class="card-header p-text">LINE ISSUES</div>
+                            <div class="card-body">
+                                <h5 class="card-title text-danger ">LINE NO: </h5>
+                                <p class="card-text ">Some quick example text to build on the card title and make up the bulk of the card's content. Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, adipisci! </p>
                             </div>
-                            <div class="col-6">
-                                <span class="wip-font ">WIP</span>
-                            </div>
-                        </div>
-                        <div class="row fs-2 ">
-                            <div class="col-6 border-bottom ">
-                                <span class="wip-font">Style A</span>
-                            </div>
-                            <div class="col-6 border-bottom ">
-                                <span class="wip-font">0000</span>
-                            </div>
-                        </div>
-                        <div class="row fs-2 text-secondary">
-                            <div class="col-6 border-bottom ">
-                                <span class="wip-font">Style A</span>
-                            </div>
-                            <div class="col-6 border-bottom ">
-                                <span class="wip-font">0000</span>
-                            </div>
-                        </div>
-                        <div class="row fs-2 text-secondary">
-                            <div class="col-6 ">
-                                <span class="wip-font">Style A</span>
-                            </div>
-                            <div class="col-6 ">
-                                <span class="wip-font">0000</span>
+                            <div class="card-footer text-muted">
+                                Reported by: 
                             </div>
                         </div>
                     </div>
